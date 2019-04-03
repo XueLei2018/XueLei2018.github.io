@@ -1,299 +1,267 @@
 <!DOCTYPE html>
 <html>
- 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Game2048</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
- 
-        .board {
-            position: relative;
-            margin: 0 auto;
-            background-color: #ccc;
-            border: 5px solid #ddd;
-        }
- 
-        .board div {
-            position: absolute;
-            color: #fff;
-            text-align: center;
-            transition:top 0.5s ,left 0.5s;
-        }
-        .alert{
-            text-indent:2em;
-            /* 段落缩进2个字 */
-        }
-    </style>
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
- 
+
 <body>
-        <div class="board"></div>
- 
-        <div class="alert">
-                <h2>2048怎么玩？</h2>
-                <p>游戏规则很简单：<strong>按键盘的方向键移动方块。</strong> 每次控制所有方块向同一个方向运动，两个相同数字的方块撞在一起之后合并成为他们的和，每次操作之后会在空白的方格处随机生成一个2或者4，最终得到一个“2048”的方块就算胜利了。如果16个格子全部填满并且相邻的格子都不相同也就是无法移动的话，那么恭喜你，gameover。</p>
- 
-                </div>
+    <div class="nav">
+        <div class="nav-top">
+            <div class="nav-top-main">
+                <ul class="nav-top-menu left">
+                    <li class='menu home'><i class="fa fa-home"></i><a href="">京东首页</a></li>
+                    <li class='menu dropdown area'>
+                        <div class="dropdown-title">
+                            <i class="fa fa-globe"></i><span>辽宁</span>
+                        </div>
+                        <div class="dropdown-layer">
+                            <ul class='items'>
+                                <li class="item"><span>北京</span></li>
+                                <li class="item"><span>上海</span></li>
+                                <li class="item"><span>天津</span></li>
+                                <li class="item"><span>重庆</span></li>
+                                <li class="item"><span>河北</span></li>
+                                <li class="item"><span>山西</span></li>
+                                <li class="item"><span>河南</span></li>
+                                <li class="item active"><span>辽宁</span></li>
+                                <li class="item"><span>吉林</span></li>
+                                <li class="item"><span>黑龙江</span></li>
+                                <li class="item"><span>内蒙古</span></li>
+                                <li class="item"><span>江苏</span></li>
+                                <li class="item"><span>山东</span></li>
+                                <li class="item"><span>安徽</span></li>
+                                <li class="item"><span>浙江</span></li>
+                                <li class="item"><span>福建</span></li>
+                                <li class="item"><span>湖北</span></li>
+                                <li class="item"><span>湖南</span></li>
+                                <li class="item"><span>广东</span></li>
+                                <li class="item"><span>广西</span></li>
+                                <li class="item"><span>江西</span></li>
+                                <li class="item"><span>四川</span></li>
+                                <li class="item"><span>海南</span></li>
+                                <li class="item"><span>贵州</span></li>
+                                <li class="item"><span>云南</span></li>
+                                <li class="item"><span>西藏</span></li>
+                                <li class="item"><span>陕西</span></li>
+                                <li class="item"><span>甘肃</span></li>
+                                <li class="item"><span>青海</span></li>
+                                <li class="item"><span>宁夏</span></li>
+                                <li class="item"><span>新疆</span></li>
+                                <li class="item"><span>港澳</span></li>
+                                <li class="item"><span>台湾</span></li>
+                                <li class="item"><span>钓鱼岛</span></li>
+                                <li class="item"><span>海外</span></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="nav-top-menu right">
+                    <li class='menu userinfo active'>
+                        <a href="">じоνё靁〃</a>
+                    </li>
+                    <li class="spacer"></li>
+                    <li class='menu'><a href="">我的订单</a></li>
+                    <li class="spacer"></li>
+                    <li class='menu dropdown myjd'>
+                        <div class="dropdown-title">
+                            <a href="">我的京东</a><i class="fa fa-angle-down"></i>
+                        </div>
+                        <div class="dropdown-layer">
+                            <div class="myjd-items top">
+                                <ul>
+                                    <li class='myjd-item'><a href="">待处理订单</a></li>
+                                    <li class='myjd-item'><a href="">消息</a></li>
+                                    <li class='myjd-item'><a href="">返修退换货</a></li>
+                                    <li class='myjd-item'><a href="">我的问答</a></li>
+                                    <li class='myjd-item'><a href="">降价商品</a></li>
+                                    <li class='myjd-item'><a href="">我的关注</a></li>
+                                </ul>
+                            </div>
+                            <div class="myjd-items bottom">
+                                <ul>
+                                    <li class='myjd-item'><a href="">我的京豆</a></li>
+                                    <li class='myjd-item'><a href="">我的优惠券</a></li>
+                                    <li class='myjd-item'><a href="">我的白条</a></li>
+                                    <li class='myjd-item'><a href="">我的理财</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="spacer"></li>
+                    <li class='menu'><a href="">京东会员</a></li>
+                    <li class="spacer"></li>
+                    <li class='menu dropdown enterprise-proc'>
+                        <div class="dropdown-title">
+                            <a href="">企业采购</a><i class="fa fa-angle-down"></i>
+                        </div>
+                        <div class="dropdown-layer">
+                            <ul>
+                                <li class='myjd-item'><a href="">企业购</a></li>
+                                <li class='myjd-item'><a href="">商用场景馆</a></li>
+                                <li class='myjd-item'><a href="">工业品</a></li>
+                                <li class='myjd-item'><a href="">礼品卡</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="spacer"></li>
+                    <li class='menu dropdown service'>
+                        <div class="dropdown-title">
+                            <span>客户服务</span><i class="fa fa-angle-down"></i>
+                        </div>
+                        <div class="dropdown-layer">
+
+
+                            <ul>
+                                <span>客户</span>
+                                <li class='myjd-item'><a href="">帮助中心</a></li>
+                                <li class='myjd-item'><a href="">售后服务</a></li>
+                                <li class='myjd-item'><a href="">在线客服</a></li>
+                                <li class='myjd-item'><a href="">意见建议</a></li>
+                                <li class='myjd-item'><a href="">电话客服</a></li>
+                                <li class='myjd-item'><a href="">客服邮箱</a></li>
+                                <li class='myjd-item'><a href="">金融咨询</a></li>
+                                <li class='myjd-item'><a href="">全球售客服</a></li>
+                            </ul>
+
+
+
+                            <ul>
+                                <span>商户</span>
+                                <li class='myjd-item'><a href="">合作招商</a></li>
+                                <li class='myjd-item'><a href="">成长中心</a></li>
+                                <li class='myjd-item'><a href="">商家后台</a></li>
+                                <li class='myjd-item'><a href="">京麦工作台</a></li>
+                                <li class='myjd-item'><a href="">商家帮助</a></li>
+                                <li class='myjd-item'><a href="">规则平台</a></li>
+                            </ul>
+
+                        </div>
+                    </li>
+                    <li class="spacer"></li>
+                    <li class='menu dropdown navbar'>
+                        <div class="dropdown-title">
+                            <span>网站导航</span><i class="fa fa-angle-down"></i>
+                        </div>
+                        <div class="dropdown-layer">
+                            <div class="topic">
+                                <ul>
+                                    <span>特色主题</span>
+                                    <li><a href=''>京东试用</a></li>
+                                    <li><a href=''>京东金融</a></li>
+                                    <li><a href=''>全球售</a></li>
+                                    <li><a href=''>国际站</a></li>
+                                    <li><a href=''>京东会员</a></li>
+                                    <li><a href=''>京东预售</a></li>
+                                    <li><a href=''>买什么</a></li>
+                                    <li><a href=''>俄语站</a></li>
+                                    <li><a href=''>装机大师</a></li>
+                                    <li><a href=''>0元评测</a></li>
+                                    <li><a href=''>港澳售</a></li>
+                                    <li><a href=''>优惠券</a></li>
+                                    <li><a href=''>秒杀</a></li>
+                                    <li><a href=''>闪购</a></li>
+                                    <li><a href=''>印尼站</a></li>
+                                    <li><a href=''>京东金融科技</a></li>
+                                    <li><a href=''>陪伴计划</a></li>
+                                    <li><a href=''>出海招商</a></li>
+                                    <li><a href=''>拍拍二手</a></li>
+                                </ul>
+                            </div>
+                            <div class="cspacer"></div>
+                            <div class="channel">
+                                <ul>
+                                    <span>行业频道</span>
+                                    <li><a href=''>手机</a></li>
+                                    <li><a href=''>智能数码</a></li>
+                                    <li><a href=''>玩3C</a></li>
+                                    <li><a href=''>电脑办公</a></li>
+                                    <li><a href=''>家用电器</a></li>
+                                    <li><a href=''>京鱼座智能</a></li>
+                                    <li><a href=''>服装城</a></li>
+                                    <li><a href=''>京东生鲜</a></li>
+                                    <li><a href=''>家装城</a></li>
+                                    <li><a href=''>母婴</a></li>
+                                    <li><a href=''>食品</a></li>
+                                    <li><a href=''>农资频道</a></li>
+                                    <li><a href=''>整车</a></li>
+                                    <li><a href=''>图书</a></li>
+                                    <li><a href=''>劳动保护</a></li>
+                                </ul>
+                            </div>
+                            <div class="cspacer"></div>
+                            <div class="service">
+                                <ul>
+                                    <span>生活服务</span>
+                                    <li><a href=''>京东众筹</a></li>
+                                    <li><a href=''>白条</a></li>
+                                    <li><a href=''>京东金融App</a></li>
+                                    <li><a href=''>京东小金库</a></li>
+                                    <li><a href=''>理财</a></li>
+                                    <li><a href=''>话费</a></li>
+                                    <li><a href=''>水电煤</a></li>
+                                    <li><a href=''>彩票</a></li>
+                                    <li><a href=''>旅行</a></li>
+                                    <li><a href=''>机票酒店</a></li>
+                                    <li><a href=''>电影票</a></li>
+                                    <li><a href=''>京东到家</a></li>
+                                    <li><a href=''>游戏</a></li>
+                                    <li><a href=''>拍拍回收</a></li>
+                                </ul>
+                            </div>
+                            <div class="cspacer"></div>
+                            <div class="more">
+                                <ul>
+                                    <span>更多精选</span>
+                                    <li><a href=''>合作招商</a></li>
+                                    <li><a href=''>京东通讯</a></li>
+                                    <li><a href=''>京东E卡</a></li>
+                                    <li><a href=''>企业采购</a></li>
+                                    <li><a href=''>服务市场</a></li>
+                                    <li><a href=''>办公生活馆</a></li>
+                                    <li><a href=''>乡村招募</a></li>
+                                    <li><a href=''>校园加盟</a></li>
+                                    <li><a href=''>京友邦</a></li>
+                                    <li><a href=''>京东社区</a></li>
+                                    <li><a href=''>游戏社区</a></li>
+                                    <li><a href=''>知识产权维护</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="spacer"></li>
+                    <li class='menu dropdown phonejd'>
+                        <div class="dropdown-title">
+                            <a href="">手机京东</a>
+                        </div>
+                        <div class="dropdown-layer">
+                            <div class="jd jdapp">
+                                <img src="./img/jdapp.png" alt="">
+                            </div>
+                            <div class="jd jdwx">
+                                <img src="./img/jdwx.jpg" alt="">
+                            </div>
+                            <div class="jd jdjr">
+                                <img src="./img/jdjr.jpg" alt="">
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="nav-search"></div>
+        <div class="nav-shopinfo"></div>
+    </div>
+    <div class="product-show">
+        <div class="product-show-menu"></div>
+        <div class="product-rotation"></div>
+        <div class="product-show"></div>
+    </div>
 </body>
-<script>
-    // 利用对象的属性访问器获取对应的颜色
-    var cellBackgroundColors = {
-        0: '#ffeeee',
-        2: '#ffccbb',
-        4: '#ffbbaa',
-        8: '#ffaa99',
-        16: '#ffaaaa',
-        32: '#ff9999',
-        64: '#ff8888',
-        128: '#ff7777',
-        256: '#ff6666',
-        512: '#ff5555',
-        1024: '#ff4444',
-        2048: '#ff3333',
-        4096: '#ff2222',
-        8192: '#ff1111'
-    };
-    // 游戏面板
-    var board = document.getElementsByClassName('board')[0];
-    // 格子间距
-    var cellBorder = 10;
-    // 格子宽度
-    var cellWidth = 100;
-    // 生成格子行数，行数列数形同使用同一个变量
-    var rowNum = 4;
-    // 初始活动格子的数量
-    var initCellNum = 2;
-    // 每次按键添加盒子数量
-    var newCellNum = 1;
-    // 按键对应的属性变化，属性变化未用到
-    var enumDirection = { up: { key: 'top' }, down: { key: 'top' }, left: { key: 'left' }, right: { key: 'left' } };
-    // 保存当前所有格子的信息
-    var currentCellsState = [];
- 
-    function init() {
-        //初始化背板
-        initBoard();
-        // 生成背景格子
-        createBackgroundCells();
-        // 生成活动盒子
-        for (var i = 0; i < initCellNum; i++) {
-            createShowCell();
-        }
-        // 注册按键
-        addKeyDownEvents();
-    }
- 
- 
-    function initBoard() {
-        board.style.width = rowNum * cellWidth + (rowNum + 1) * cellBorder + 'px';
-        board.style.height = rowNum * cellWidth + (rowNum + 1) * cellBorder + 'px';
-    }
- 
-    function createBackgroundCells() {
-        for (var i = 0; i < rowNum; i++) {
-            currentCellsState[i] = [];//初始化
-            for (var j = 0; j < rowNum; j++) {
-                var top = cellWidth * i + cellBorder * (i + 1);
-                var left = cellWidth * j + cellBorder * (j + 1);
-                createCell(0, left, top, i, j);//创建格子并添加到游戏面板中
-                var cellState = {};//格子状态信息保存到全局数组中
-                cellState.num = 0;//格子上的数字
-                cellState.left = left;//格子左边距
-                cellState.top = top;//格子上边距
-                cellState.row = i;//格子所在行号
-                cellState.col = j;//格子所在列号
-                cellState.cell = null;//格子信息对应的格子对象
-                cellState.show = false;//格子是否存在
-                currentCellsState[i][j] = cellState;
-            }
-        }
-    }
-    //创建格子并添加到游戏面板中
-    function createCell(num, left, top, row, col) {
-        var temp = document.createElement('div');
-        temp.style.left = left + 'px';
-        temp.style.top = top + 'px';
-        temp.style.width = cellWidth + 'px';
-        temp.style.height = cellWidth + 'px';
-        temp.style.lineHeight = cellWidth + 'px';
-        temp.style.backgroundColor = cellBackgroundColors[num];
-        temp.style.fontSize = 0.4 * cellWidth + 'px';
-        temp.innerHTML = row + ',' + col;
-        if (num > 0) {
-            temp.innerHTML = num;//格子中的数字 大于 0 就显示出来
-            currentCellsState[row][col].num = num;
-            currentCellsState[row][col].show = true;
-            currentCellsState[row][col].cell = temp;
-        }
-        board.appendChild(temp);//添加到游戏面板
-        return temp;
-    }
- 
-    //生成一个随机位置的盒子，并显示出来。
-    function createShowCell() {
-        while (true) {
-            var randRow = Math.floor(Math.random() * rowNum);
-            var randCol = Math.floor(Math.random() * rowNum);
-            if (!currentCellsState[randRow][randCol].show) {
-                var randNum = Math.random() >= 0.5 ? 2 : 4;
-                var top = cellWidth * randRow + cellBorder * (randRow + 1);
-                var left = cellWidth * randCol + cellBorder * (randCol + 1);
-                var cell = createCell(randNum, left, top, randRow, randCol);
-                console.log(cell);
-                return cell;
-            }
-        }
-    }
- 
-    // 注册按键事件
-    function addKeyDownEvents() {
-        document.addEventListener('keydown', function (e) {
-            switch (e.key) {
-                case 'ArrowUp': moveCell(enumDirection.up); break;
-                case 'ArrowDown': moveCell(enumDirection.down); break;
-                case 'ArrowLeft': moveCell(enumDirection.left); break;
-                case 'ArrowRight': moveCell(enumDirection.right); break;
-                default: break;
-            }
-        })
-    }
- 
-    // 移动格子 一组联动的格子处理。上下以列分组，左右以行分组。
-    function moveCell(direction) {
-        var isChange = false;
-        if (enumDirection.up == direction) {
-            for (var c = 0; c < rowNum; c++) {
-                for (var r = 0; r < rowNum; r++) {
-                    var baseCell = currentCellsState[r][c]
-                    for (var r2 = r + 1; r2 < rowNum; r2++) {
-                        var tempCell = currentCellsState[r2][c]
-                        var rtn = moveByCell(baseCell, tempCell);
-                        isChange = rtn.isChange || isChange;
-                        if (rtn.result) {
-                            break;
-                        }
-                    }
-                }
-            }
-        }
- 
-        if (enumDirection.down == direction) {
-            for (var c = 0; c < rowNum; c++) {
-                for (var r = rowNum - 1; r >= 0; r--) {
-                    var baseCell = currentCellsState[r][c]
-                    for (var r2 = r - 1; r2 >= 0; r2--) {
-                        var tempCell = currentCellsState[r2][c]
-                        var rtn = moveByCell(baseCell, tempCell);
-                        isChange = rtn.isChange || isChange;
-                        if (rtn.result) {
-                            break;
-                        }
-                    }
-                }
-            }
-        }
- 
-        if (enumDirection.left == direction) {
-            for (var r = 0; r < rowNum; r++) {
-                for (var c = 0; c < rowNum; c++) {
-                    var baseCell = currentCellsState[r][c];
-                    for (var c2 = c + 1; c2 < rowNum; c2++) {
-                        var tempCell = currentCellsState[r][c2];
-                        var rtn = moveByCell(baseCell, tempCell);
-                        isChange = rtn.isChange || isChange;
-                        if (rtn.result) {
-                            break;
-                        }
-                    }
-                }
-            }
-        }
-        if (enumDirection.right == direction) {
-            for (var r = 0; r < rowNum; r++) {
-                for (var c = rowNum - 1; c >= 0; c--) {
-                    var baseCell = currentCellsState[r][c];
-                    for (var c2 = c - 1; c2 >= 0; c2--) {
-                        var tempCell = currentCellsState[r][c2];
-                        var rtn = moveByCell(baseCell, tempCell);
-                        isChange = rtn.isChange || isChange;
-                        if (rtn.result) {
-                            break;
-                        }
-                    }
-                }
-            }
-        }
-        if (isChange) {
-            for (var i = 0; i < newCellNum; i++) {
-                createShowCell();
-            }
- 
-        }
-    }
- 
-    function moveByCell(baseCell, tempCell) {
-        // 如果当前cell是空，则把遇到第一个cell移动到当前位置，然后继续比对，遇到相同的则合并，并返回，遇到不同的就返回。
-        // 如果当前cell不为空，遇到相同的则合并，并返回，遇到不同的就返回。
-        var rtn = {
-            result:false,//是否中断比对。
-            isChange:false//格子是否移动，如果格子移动需要添加新的盒子。未移动不添加。
-        }
-        if (!baseCell.show) {
-            if (tempCell.show) {
-                console.log('移动有数字的格子到空位', baseCell, tempCell);
-                baseCell.show = true;
-                baseCell.num = tempCell.num;
-                baseCell.cell = tempCell.cell;
-                baseCell.cell.style.left = baseCell.left + 'px';
-                baseCell.cell.style.top = baseCell.top + 'px';
-                // 移动完原位置清空
-                tempCell.show = false;
-                tempCell.num = 0;
-                tempCell.cell = null;
-                rtn.isChange = true;
-            }
-        }
-        if (baseCell.show) {
-            if (tempCell.show) {
-                if (tempCell.num == baseCell.num) {
-                    console.log('合并两个有相同数字的格子', baseCell, tempCell);
-                    baseCell.num = baseCell.num * 2;
-                    baseCell.cell.style.backgroundColor = cellBackgroundColors[baseCell.num];
-                    baseCell.cell.innerHTML = baseCell.num;
-                    // 设置移动特效，设置属性，css中设置过渡效果。
-                    tempCell.cell.style.left = baseCell.left + 'px';
-                    tempCell.cell.style.top = baseCell.top + 'px';
-                    tempCell.show = false;
-                    tempCell.num = 0;
-                    // 移动完成后移除元素
-                    board.removeChild(tempCell.cell);
-                    tempCell.cell = null;
-                    rtn.isChange = true;
-                }
-                rtn.result = true;
-                return rtn;
-            }
-        }
-        return rtn;
-    }
- 
-    // 判断游戏结束，需要完善，未使用
-    function isOver(){
-        for(var r = 0; r < rowNum;r++){
-            for(var c = 0; c < rowNum; c++){
-                if(!currentCellsState[r][c].show){
-                    return false;
-                }
-            }
-        }
-        alert('游戏结束！重新开始请刷新页面！');
-    }
-    init();
-</script>
+
 </html>
