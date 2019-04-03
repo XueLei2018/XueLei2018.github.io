@@ -94,6 +94,10 @@ body,html{
 .nav-top-menu .home a,
 .nav-top-menu .area span{
     margin:0 15px 0 5px;
+    color:#999;
+}
+.nav-top-menu .home a:hover{
+    color:#f30213;
 }
 .nav-top-menu .area ul{
     width:300px;
