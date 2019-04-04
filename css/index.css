@@ -570,6 +570,7 @@ body,html{
 .right-toolbar .cart:hover {
     background-color:#ef5549;
     color:#fff;
+    cursor:pointer;
 }
 .right-toolbar .cart:hover span:nth-of-type(2){
     background-color:#fff;
