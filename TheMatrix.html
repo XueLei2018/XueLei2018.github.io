@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>骇客帝国</title>
+    <style>
+        canvas {
+            display: block;
+            margin: 20px auto;
+            background-color: #000;
+        }
+    </style>
+</head>
+ 
+<body>
+    <canvas width='1300px' height="600px"></canvas>
+    <script>
+        (function () {
+            // 获取画板
+            var canvas = document.getElementsByTagName('canvas')[0];
+            // 创建画笔
+            var context = canvas.getContext("2d");
+            // 设置文字大小
+            var fontSize = 16;
+            // 画布宽度
+            var cW = canvas.offsetWidth;
+            // 画布高度
+            var cH = canvas.offsetHeight;
+            // 计算画的列数
+            var colNum = Math.floor(cW / fontSize);
+            //保存每列的起始行号
+            var columns = [];
+            // 掉落的字母集合
+            var str = 'JavaScript Function(){};';
+            // 初始化起始行号
+            for (var i = 0; i < colNum; i++) {
+                columns[i] = 1;
+            }
+            // 显示标题
+            function showTitle() {
+                context.font = "700 196px 微软雅黑";
+                context.fillStyle = "rgba(0,204,51,0.1";
+                context.fillText("骇 客 帝 国", 200, 302);
+            }
+            // 画图方法
+            function draw() {
+                //画背景色，设置透明度为了画布上的显示字符逐渐消失的效果。
+                context.fillStyle = "rgba(0,0,0,0.07)";
+                // 起始X坐标，起始Y坐标，宽度，高度
+                context.fillRect(0, 0, cW, cH);
+                // 设置画字符的字体样式 700字体粗细，16px 字体大小，字体类型
+                context.font = "700 " + fontSize + "px 微软雅黑";
+                // 设置字符颜色
+                context.fillStyle = "#00cc33";
+                // 循环每一列，进行画字符
+                for (var i = 0; i < colNum; i++) {
+                    // 随机产生字符串索引序号
+                    var index = Math.floor(Math.random() * str.length);
+                    //   执行画字符：字符（随机产生），起始X坐标，起始Y坐标
+                    context.fillText(str[index], i * fontSize, columns[i] * fontSize);
+                    //   起始行数增加 1
+                    columns[i]++;
+                    //   如果行坐标大于画布高度，并且随机数大于0.99（随机数影响，落下字符的列密度），则重新从 1 行开始
+                    if (columns[i] * fontSize > cH && Math.random() > 0.99) {
+                        columns[i] = 1;
+                    }
+                }
+                // 每到整10秒的时候显示一秒钟标题
+                var temp = new Date().getSeconds() % 10;
+                console.log(temp);
+                if (temp == 0) {
+                    showTitle();
+                }
+            }
+            draw();
+            setInterval(draw, 20);
+        })();
+    </script>
+</body>
+ 
+</html>
